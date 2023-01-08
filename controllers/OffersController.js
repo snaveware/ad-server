@@ -76,7 +76,8 @@ module.exports = class OffersController {
                 query: validated,
             });
         } catch (error) {
-            RequestHandler.sendError(req.requestId, res, error);
+            res.send(error);
+            //RequestHandler.sendError(req.requestId, res, error);
         }
     }
 };

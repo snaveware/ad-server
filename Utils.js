@@ -5,13 +5,13 @@ function createTrafficObject(req, offer) {
         uid: offer.uid,
         session: req.requestId, // using the generated uuid4 for the traffic
         campaign_id: req.query.campaign_id,
-        host: request.headers.host,
+        host: req.headers ? request.headers["host"] : null,
         path: req.path,
         env: null, // not sure
-        accept_lang: req.headers["accept-language"],
-        accept_header: req.headers.accept,
-        referrer: req.headers["referer"],
-        domain: req.query.domain,
+        accept_lang: req.headers ? req.headers["accept-language"] : null,
+        accept_header: req.headers ? req.headers["accept"] : null,
+        referrer: req.headers ? req.headers["referer"] : null,
+        domain: req.headers ? req.query.domain : null,
         appid: null, // not sure
         geo: null, // not sure
         region: req.geolocationInformation.region,
@@ -21,7 +21,7 @@ function createTrafficObject(req, offer) {
         browser: req.useragent.browser,
         browser_version: req.useragent.version,
         user_ip: req.geolocationInformation.ip_address,
-        user_agent: req.headers.user_agent,
+        user_agent: req.headers ? req.headers["user_agent"] : null,
         creative_id: null, //not sure the meaning
         created_at: Date.now(),
         dsp: req.query.dsp,

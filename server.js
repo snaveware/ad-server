@@ -6,8 +6,11 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 
 const cors = require("cors");
+const useragent = require("express-useragent");
 
 app.use(cors.apply());
+app.use(express.json());
+app.use(useragent.express());
 
 const {
     createRequestId,

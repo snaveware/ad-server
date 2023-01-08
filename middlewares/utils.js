@@ -42,12 +42,16 @@ async function getIPGeolocationDetails(req, res, next) {
     try {
         const URL = `https://ipgeolocation.abstractapi.com/v1/?api_key=${sysConfig.IP_GEOLOCATION_API_KEY}&ip_address=${req.clientIp}`;
         const response = await axios.get(URL);
-        console.log("response geo: ", response);
+
         req.geolocationInformation = response.data;
     } catch (error) {
         console.log(error);
     }
 
+    next();
+}
+
+async function getUserAgentInformation(req, res, next) {
     next();
 }
 

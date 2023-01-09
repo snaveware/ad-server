@@ -5,8 +5,8 @@ function createTrafficObject(req, offer) {
         uid: offer.uid,
         session: req.requestId, // using the generated uuid4 for the traffic
         campaign_id: req.query.campaign_id,
-        host: req.headers ? request.headers["host"] : null,
-        path: req.path,
+        // host: req.headers ? request.headers["host"] : null,
+        // path: req.path,
         env: null, // not sure
         accept_lang: req.headers ? req.headers["accept-language"] : null,
         accept_header: req.headers ? req.headers["accept"] : null,

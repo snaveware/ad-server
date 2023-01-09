@@ -2,7 +2,6 @@ const Logger = require("../Logger");
 const requestIp = require("request-ip");
 const axios = require("axios");
 const sysConfig = require("../Config");
-var netacuity = require("node-netacuity");
 var parser = require("ua-parser-js");
 
 const uuid4 = require("uuid4");

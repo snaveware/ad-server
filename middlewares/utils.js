@@ -55,7 +55,7 @@ async function getIPGeolocationDetails(req, res, next) {
 async function getIPGeolocationDetailsV2(req, res, next) {
     Logger.debug("Obtaining Geolocation Information");
     try {
-        const ip = "196.111.22.24"; //req.clientIP
+        const ip = req.clientIP,
         const URL = `https://global-ds.cloud.netacuity.com/webservice/query?u=1d124ea1-f3f0-4a74-aa38-cd5ec775641c&ip=${ip}&dbs=all&trans_id=example&json=true`;
 
         const response = await axios.get(URL);

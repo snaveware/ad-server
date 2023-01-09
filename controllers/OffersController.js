@@ -4,7 +4,11 @@ const {
     validateSpecificOfferURLQuery,
 } = require("../Validators");
 
-const { createTrafficObject, createClickObject } = require("../Utils");
+const {
+    // createTrafficObject,
+    createClickObject,
+    createTrafficObjectV2,
+} = require("../Utils");
 
 const TEST_OFFER = {
     uid: "test offeru id",
@@ -35,9 +39,11 @@ module.exports = class OffersController {
              * TODO
              * Get offer using the profivded offer id
              */
+
+            console.log(req.useragent);
             const offer = TEST_OFFER;
 
-            const trafficObj = createTrafficObject(req, offer);
+            const trafficObj = createTrafficObjectV2(req, offer);
 
             const clickObj = createClickObject(req, offer);
 
@@ -64,7 +70,7 @@ module.exports = class OffersController {
 
             const offer = TEST_OFFER;
 
-            const trafficObj = createTrafficObject(req, offer);
+            const trafficObj = createTrafficObjectV2(req, offer);
 
             const clickObj = createClickObject(req, offer);
 

@@ -3,6 +3,8 @@ const {
     logRequests,
     ipMiddleware,
     getIPGeolocationDetails,
+    getIPGeolocationDetailsV2,
+    getUserAgentInformation,
 } = require("./utils");
 
 module.exports = {
@@ -10,4 +12,6 @@ module.exports = {
     logRequests,
     ipMiddleware,
     getIPGeolocationDetails,
+    getIPGeolocationDetailsV2,
+    getUserAgentInformation,
 };

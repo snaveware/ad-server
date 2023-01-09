@@ -6,23 +6,27 @@ require("dotenv").config();
 const PORT = process.env.PORT;
 
 const cors = require("cors");
-const useragent = require("express-useragent");
+// const useragent = require("express-useragent");
 
 app.use(cors.apply());
 app.use(express.json());
-app.use(useragent.express());
+// app.use(useragent.express());
 
 const {
     createRequestId,
     logRequests,
     ipMiddleware,
-    getIPGeolocationDetails,
+    // getIPGeolocationDetails,
+    getIPGeolocationDetailsV2,
+    getUserAgentInformation,
 } = require("./middlewares");
 
 app.use(createRequestId);
 app.use(logRequests);
 app.use(ipMiddleware);
-app.use(getIPGeolocationDetails);
+// app.use(getIPGeolocationDetails);
+app.use(getIPGeolocationDetailsV2);
+app.use(getUserAgentInformation);
 
 /**
  * Routers

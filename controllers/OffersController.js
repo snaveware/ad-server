@@ -40,7 +40,6 @@ module.exports = class OffersController {
              * Get offer using the profivded offer id
              */
 
-            console.log(req.useragent);
             const offer = TEST_OFFER;
 
             const trafficObj = createTrafficObjectV2(req, offer);

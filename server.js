@@ -37,8 +37,17 @@ const { offersRouter } = require("./Routers");
 app.use("/app/", offersRouter);
 
 const RequestHandler = require("./RequestHandler");
+const { Console } = require("winston/lib/winston/transports");
 
-app.listen(PORT, () => console.log(`App Running on port ${PORT}`));
+app.listen(PORT || 5000, () => {
+    if (!PORT) {
+        Console.log(
+            "Server listening on default port 5000, Please set environment variables to avoid unexpected errors"
+        );
+    } else {
+        console.log(`App Running on port ${PORT}`);
+    }
+});
 
 /**
  * Other routes are recorded as 404

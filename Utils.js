@@ -1,51 +1,5 @@
 const { request } = require("express");
 
-function createTrafficObject(req, offer) {
-    const trafficObj = {
-        uid: offer.uid,
-        session: req.requestId, // using the generated uuid4 for the traffic
-        campaign_id: req.query.campaign_id,
-        host: req.get("host"),
-        path: req.path,
-        env: null, // not sure
-        accept_lang: req.headers ? req.headers["accept-language"] : null,
-        accept_header: req.headers ? req.headers["accept"] : null,
-        referrer: req.headers ? req.headers["referer"] : null,
-        domain: req.headers ? req.query.domain : null,
-        appid: null, // not sure
-        geo: null, // not sure
-        region: req.geolocationInformation.region,
-        city: req.geolocationInformation.city,
-        os: req.useragent.os,
-        os_version: null,
-        browser: req.useragent.browser,
-        browser_version: req.useragent.version,
-        user_ip: req.geolocationInformation.ip_address,
-        user_agent: req.headers ? req.headers["user_agent"] : null,
-        creative_id: null, //not sure the meaning
-        created_at: Date.now(),
-        dsp: req.query.dsp,
-        status: offer.status,
-        source: req.useragent.source,
-        idfa: req.query.idfa,
-        isp: req.geolocationInformation.connection
-            ? req.geolocationInformation.connection.isp_name
-            : null,
-        f_click: null, //not sure what it means
-        connection_type: req.geolocationInformation.connection
-            ? req.geolocationInformation.connection.connection_type
-            : null,
-        longitude: req.geolocationInformation.connection
-            ? req.geolocationInformation.longitude
-            : null,
-        latitude: req.geolocationInformation.connection
-            ? req.geolocationInformation.latitude
-            : null,
-    };
-
-    return trafficObj;
-}
-
 /**
  *
  * uses info from the netacuity api
@@ -103,7 +57,6 @@ function createClickObject(req, offer) {
 }
 
 module.exports = {
-    createTrafficObject,
     createClickObject,
     createTrafficObjectV2,
 };

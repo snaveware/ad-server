@@ -38,20 +38,6 @@ const ipMiddleware = function (req, res, next) {
     next();
 };
 
-async function getIPGeolocationDetails(req, res, next) {
-    Logger.debug("Obtaining Geolocation Information");
-    try {
-        const URL = `https://ipgeolocation.abstractapi.com/v1/?api_key=${sysConfig.IP_GEOLOCATION_API_KEY}&ip_address=${req.clientIP}`;
-        const response = await axios.get(URL);
-
-        req.geolocationInformation = response.data;
-    } catch (error) {
-        console.log(error);
-    }
-
-    next();
-}
-
 async function getIPGeolocationDetailsV2(req, res, next) {
     Logger.debug("Obtaining Geolocation Information");
     try {
@@ -82,7 +68,6 @@ module.exports = {
     createRequestId,
     logRequests,
     ipMiddleware,
-    getIPGeolocationDetails,
     getIPGeolocationDetailsV2,
     getUserAgentInformation,
 };

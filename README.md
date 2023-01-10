@@ -20,5 +20,5 @@
 
 PORT=5000 (specify the port where to run the app)
 NODE_ENV=development (used to configure logging)
-LOGGING_LEVEL=debug (could be: debug,info,error,warning, etc. refer to winston logger documentation)
-HANDLE_UNEXPECTED_EXCEPTIONS_IN_LOGGER=false (Refer to winston logger documentation)
+LOGGING_LEVEL=debug (could be: debug,info,error,warni, etc. refer to winston logger documentation) [Winston Logger](https://www.npmjs.com/package/winston)
+HANDLE_UNEXPECTED_EXCEPTIONS_IN_LOGGER=false (Refer to winston logger documentation)[Winston Logger](https://www.npmjs.com/package/winston)

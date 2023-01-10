@@ -4,11 +4,7 @@ const {
     validateSpecificOfferURLQuery,
 } = require("../Validators");
 
-const {
-    // createTrafficObject,
-    createClickObject,
-    createTrafficObjectV2,
-} = require("../Utils");
+const { createClickObject, createTrafficObjectV2 } = require("../Utils");
 
 const TEST_OFFER = {
     uid: "test offeru id",
@@ -81,8 +77,7 @@ module.exports = class OffersController {
                 query: validated,
             });
         } catch (error) {
-            res.send(error);
-            //RequestHandler.sendError(req.requestId, res, error);
+            RequestHandler.sendError(req.requestId, res, error);
         }
     }
 };
